@@ -1,0 +1,47 @@
+<main class="page">
+  <section class="brand-panel">
+    <p class="chip">Smart learning space</p>
+    <h1>{{ appName }}</h1>
+    <p class="subtitle">
+      Welcome to your focused study portal. Sign in to continue your learning journey.
+    </p>
+    <div class="highlight">
+      <p>Temporary login credentials</p>
+      <p><span>User ID:</span> {{ tempUserId }}</p>
+      <p><span>Password:</span> {{ tempPassword }}</p>
+    </div>
+  </section>
+
+  <section class="login-panel">
+    <h2>Login</h2>
+    <p class="hint">Enter your credentials to generate a JWT token.</p>
+
+    <form (ngSubmit)="onSubmit()" autocomplete="off">
+      <label for="userId">User ID</label>
+      <input
+        id="userId"
+        name="userId"
+        type="text"
+        [(ngModel)]="userId"
+        placeholder="Enter your user ID"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Enter your password"
+        required
+      />
+
+      @if (loginError()) {
+        <p class="error">{{ loginError() }}</p>
+      }
+
+      <button type="submit">Sign In</button>
+    </form>
+  </section>
+</main>

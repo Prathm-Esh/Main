@@ -1,0 +1,23 @@
+<main class="dashboard-page">
+  <section class="card">
+    <p class="tag">Authenticated Session</p>
+    <h1>Welcome to {{ appName }}</h1>
+    <p class="subtext">You are logged in as <strong>{{ userId() }}</strong>.</p>
+
+    <div class="meta-grid">
+      <article>
+        <h2>User</h2>
+        <p>{{ userId() }}</p>
+      </article>
+      <article>
+        <h2>Token Expires</h2>
+        <p>{{ expiryTime() }}</p>
+      </article>
+    </div>
+
+    <h2 class="token-heading">JWT Token</h2>
+    <code>{{ token() }}</code>
+
+    <button type="button" (click)="logout()">Logout</button>
+  </section>
+</main>
